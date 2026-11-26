@@ -1,805 +1,89 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#063b46">
-
-<title>Septic Science | Proper Septic Tank Management</title>
-
-<style>
-:root {
-  --deep: #063b46;
-  --deep2: #075766;
-  --green: #20a879;
-  --green-dark: #08734f;
-  --blue: #167dad;
-  --blue-dark: #105d91;
-  --mint: #b5e5d2;
-  --mint-light: #dff5eb;
-  --sky: #d5eef5;
-  --sky-light: #e8f7fb;
-  --white: #ffffff;
-  --text: #103d43;
-  --muted: #244f55;
-  --shadow: 0 10px 28px rgba(6,59,70,.15);
-}
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  scroll-behavior: smooth;
-}
-
-body {
-  font-family: Arial, Helvetica, sans-serif;
-  background: var(--mint-light);
-  color: var(--text);
-  line-height: 1.75;
-}
-
-a {
-  text-decoration: none;
-  color: inherit;
-}
-
-header {
-  background: var(--deep);
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-  box-shadow: 0 4px 15px rgba(0,0,0,.2);
-}
-
-.navbar {
-  max-width: 1250px;
-  margin: auto;
-  padding: 15px 5%;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.logo {
-  color: white;
-  font-size: 22px;
-  font-weight: 900;
-  letter-spacing: 1px;
-}
-
-.logo span {
-  color: #70e5b8;
-}
-
-nav {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-}
-
-nav a {
-  color: #ffffff;
-  font-size: 12px;
-  font-weight: bold;
-  transition: .2s;
-}
-
-nav a:hover {
-  color: #70e5b8;
-}
-
-.menu-toggle {
-  display: none;
-  color: white;
-  background: none;
-  border: none;
-  font-size: 28px;
-  cursor: pointer;
-}
-
-.hero {
-  min-height: 600px;
-  display: flex;
-  align-items: center;
-  padding: 85px 8%;
-  color: white;
-  background:
-    radial-gradient(circle at 85% 20%, rgba(80,214,164,.3), transparent 30%),
-    linear-gradient(125deg, #063b46, #08745f 55%, #167dad);
-}
-
-.hero-content {
-  max-width: 760px;
-}
-
-.tag {
-  display: inline-block;
-  background: #075e50;
-  border: 1px solid #8af0c4;
-  color: #ffffff;
-  padding: 7px 16px;
-  border-radius: 30px;
-  font-size: 12px;
-  font-weight: bold;
-  margin-bottom: 22px;
-}
-
-.hero h1 {
-  font-size: clamp(38px, 6vw, 68px);
-  line-height: 1.15;
-  margin-bottom: 22px;
-  color: white;
-}
-
-.hero h1 span {
-  color: #80edbd;
-}
-
-.hero p {
-  color: #ffffff;
-  max-width: 620px;
-  font-size: 17px;
-  margin-bottom: 30px;
-}
-
-.btn {
-  display: inline-block;
-  background: #08734f;
-  color: white;
-  padding: 13px 25px;
-  border-radius: 8px;
-  font-weight: bold;
-  border: 2px solid transparent;
-  cursor: pointer;
-  transition: .25s;
-}
-
-.btn:hover {
-  background: #045c40;
-  transform: translateY(-3px);
-}
-
-.btn-blue {
-  background: #105d91;
-}
-
-.btn-blue:hover {
-  background: #083f69;
-}
-
-.btn-outline {
-  background: transparent;
-  border: 2px solid white;
-  color: white;
-  margin-left: 10px;
-}
-
-.btn-outline:hover {
-  background: white;
-  color: var(--deep);
-}
-
-section {
-  padding: 80px 8%;
-  scroll-margin-top: 75px;
-}
-
-.container {
-  max-width: 1150px;
-  margin: auto;
-}
-
-.section-heading {
-  max-width: 740px;
-  text-align: center;
-  margin: 0 auto 45px;
-}
-
-.section-heading small {
-  font-weight: 900;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  color: #075e43;
-}
-
-.section-heading h2 {
-  color: var(--deep);
-  font-size: clamp(27px, 4vw, 38px);
-  margin: 8px 0 12px;
-  line-height: 1.3;
-}
-
-.section-heading p {
-  color: #244f55;
-}
-
-.about-section { background: #b5e5d2; }
-.science-section { background: linear-gradient(135deg, #08734f, #063b46); color: white; }
-.science-section .section-heading h2,
-.science-section .section-heading p { color: white; }
-.science-section .section-heading small { color: #a9f5d2; }
-.process-section { background: #d5eef5; }
-.diagram-section { background: linear-gradient(135deg, #167dad, #063b46); }
-.diagram-section .section-heading h2,
-.diagram-section .section-heading p { color: white; }
-.diagram-section .section-heading small { color: #a9f5d2; }
-.problems-section { background: #b5e5d2; }
-.impact-section { background: linear-gradient(130deg, #08734f, #105d91); }
-.impact-section .section-heading h2,
-.impact-section .section-heading p { color: white; }
-.impact-section .section-heading small { color: #a9f5d2; }
-.maintenance-section { background: #d5eef5; }
-.laws-section { background: var(--deep); }
-.laws-section .section-heading h2,
-.laws-section .section-heading p { color: white; }
-.laws-section .section-heading small { color: #a9f5d2; }
-.quiz-section { background: #b5e5d2; }
-.references-section { background: #d5eef5; }
-
-.about-grid,
-.impact-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 30px;
-  align-items: center;
-}
-
-.about-grid h3 {
-  color: var(--deep);
-  margin-bottom: 13px;
-}
-
-.about-grid p {
-  color: #16484c;
-}
-
-.about-panel {
-  padding: 30px;
-  border-radius: 16px;
-  background: #08734f;
-  color: white;
-  box-shadow: var(--shadow);
-}
-
-.about-panel h3 {
-  color: white;
-  margin-bottom: 12px;
-}
-
-.list {
-  padding-left: 20px;
-}
-
-.list li {
-  margin: 9px 0;
-  color: inherit;
-}
-
-.info-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 22px;
-}
-
-.card {
-  background: #e2f7ed;
-  padding: 27px;
-  border-radius: 16px;
-  box-shadow: var(--shadow);
-  border-bottom: 5px solid #08734f;
-  transition: .25s;
-}
-
-.card:hover {
-  transform: translateY(-7px);
-}
-
-.card h3 {
-  color: #063b46;
-  margin-bottom: 10px;
-}
-
-.card p {
-  color: #244f55;
-  font-size: 14px;
-}
-
-.card.blue-card {
-  background: #d5eef5;
-  border-bottom-color: #105d91;
-}
-
-.card.green-card {
-  background: #08734f;
-  border-bottom-color: #a9f5d2;
-}
-
-.card.green-card h3,
-.card.green-card p {
-  color: white;
-}
-
-.icon {
-  font-size: 35px;
-  margin-bottom: 13px;
-}
-
-.process {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 18px;
-}
-
-.process-step {
-  text-align: center;
-  padding: 27px 17px;
-  border-radius: 15px;
-  background: #e2f7ed;
-  box-shadow: var(--shadow);
-  border-top: 5px solid #08734f;
-}
-
-.process-step:nth-child(even) {
-  background: #c4e8f2;
-  border-top-color: #105d91;
-}
-
-.number {
-  width: 47px;
-  height: 47px;
-  display: grid;
-  place-items: center;
-  background: #08734f;
-  color: white;
-  font-weight: bold;
-  border-radius: 50%;
-  margin: 0 auto 15px;
-  font-size: 18px;
-}
-
-.process-step:nth-child(even) .number {
-  background: #105d91;
-}
-
-.process-step h3 {
-  color: var(--deep);
-  margin-bottom: 8px;
-}
-
-.process-step p {
-  font-size: 13px;
-  color: #244f55;
-}
-
-.diagram-box {
-  background: #ffffff;
-  color: var(--deep);
-  padding: 25px;
-  border-radius: 18px;
-  box-shadow: 0 12px 35px rgba(0,0,0,.2);
-  text-align: center;
-}
-
-.diagram-box svg {
-  width: 100%;
-  max-width: 850px;
-  height: auto;
-}
-
-.diagram-note {
-  font-size: 13px;
-  color: #244f55;
-  margin-top: 12px;
-}
-
-.law-card {
-  background: #0c6470;
-  padding: 25px;
-  border-radius: 13px;
-  margin-bottom: 18px;
-  border-left: 5px solid #70e5b8;
-  box-shadow: var(--shadow);
-}
-
-.law-card h3 {
-  color: #ffffff;
-  margin-bottom: 8px;
-}
-
-.law-card p {
-  color: #ffffff;
-  margin-bottom: 10px;
-}
-
-.law-card a {
-  color: #a9f5d2;
-  font-weight: bold;
-  text-decoration: underline;
-}
-
-.quiz-box {
-  max-width: 780px;
-  margin: auto;
-  padding: 32px;
-  border-radius: 18px;
-  background: #e2f7ed;
-  box-shadow: var(--shadow);
-}
-
-.question {
-  margin-bottom: 27px;
-}
-
-.question h3 {
-  color: var(--deep);
-  margin-bottom: 12px;
-  font-size: 16px;
-}
-
-.question label {
-  display: block;
-  padding: 11px 14px;
-  margin: 8px 0;
-  background: #ffffff;
-  color: #103d43;
-  border: 1px solid #70bda0;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: .2s;
-}
-
-.question label:hover {
-  background: #c4e8d7;
-  border-color: #08734f;
-}
-
-.question input {
-  margin-right: 8px;
-  accent-color: #08734f;
-}
-
-#quiz-result {
-  display: none;
-  margin-top: 20px;
-  padding: 16px;
-  border-radius: 10px;
-  background: var(--deep);
-  color: white;
-  font-weight: bold;
-}
-
-.reference-list {
-  list-style: none;
-}
-
-.reference-list li {
-  background: #c4e8f2;
-  color: #103d43;
-  padding: 16px 20px;
-  border-radius: 10px;
-  margin-bottom: 12px;
-  border-left: 5px solid var(--blue);
-}
-
-.reference-list a {
-  color: #063b46;
-  font-weight: bold;
-  text-decoration: underline;
-}
-
-.reference-list a:hover {
-  color: #08734f;
-}
-
-.cta {
-  padding: 75px 8%;
-  text-align: center;
-  background: linear-gradient(120deg, #063b46, #08734f, #105d91);
-  color: white;
-}
-
-.cta h2 {
-  font-size: clamp(27px, 4vw, 38px);
-  margin-bottom: 13px;
-  color: white;
-}
-
-.cta p {
-  color: white;
-  margin-bottom: 25px;
-}
-
-footer {
-  background: #042d35;
-  color: white;
-  text-align: center;
-  padding: 30px 15px;
-  font-size: 13px;
-}
-
-footer strong {
-  font-size: 19px;
-  color: white;
-}
-
-footer strong span {
-  color: #70e5b8;
-}
-
-@media(max-width: 950px) {
-  nav { gap: 10px; }
-  nav a { font-size: 10px; }
-  .process { grid-template-columns: repeat(2, 1fr); }
-}
-
-@media(max-width: 700px) {
-  .menu-toggle { display: block; }
-  nav {
-    display: none;
-    position: absolute;
-    top: 65px;
-    left: 0;
-    width: 100%;
-    background: var(--deep);
-    padding: 20px;
-    flex-direction: column;
-    align-items: flex-start;
-  }
-  nav.active { display: flex; }
-  nav a { font-size: 14px; padding: 4px 0; }
-  .hero { min-height: 520px; padding: 70px 7%; }
-  section { padding: 65px 6%; }
-  .about-grid,
-  .impact-grid,
-  .info-grid { grid-template-columns: 1fr; }
-  .process { grid-template-columns: 1fr; }
-  .btn-outline { margin: 12px 0 0; }
-  .quiz-box { padding: 20px; }
-}
-</style>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="An educational guide to septic tanks, their operation, maintenance, and environmental importance.">
+	<title>SEPTIC / A Field Guide to Wastewater</title>
+	<style>
+		@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap');
+		:root{--navy:#0b2024;--navy2:#102e32;--green:#174d3c;--green2:#236b4d;--lime:#c5f36b;--cream:#f1f0e7;--paper:#e5e8dc;--muted:#a6b8ac;--ink:#142b27;--line:rgba(197,243,107,.22)}
+		*{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth;scroll-padding-top:82px}body{background:var(--cream);color:var(--ink);font:16px/1.65 'DM Sans',sans-serif}a{color:inherit;text-decoration:none}.mono{font:500 10px 'DM Mono',monospace;letter-spacing:.08em;text-transform:uppercase}
+		.topbar{background:var(--navy);color:var(--muted);padding:9px 7%;display:flex;justify-content:space-between;gap:12px}.topbar span:last-child{color:var(--lime)}header{position:sticky;top:0;z-index:10;background:rgba(11,32,36,.97);border-bottom:1px solid var(--line);padding:0 7%}nav{min-height:76px;display:flex;align-items:center;justify-content:space-between;gap:20px}.logo{color:var(--cream);font:700 22px 'Space Grotesk',sans-serif;letter-spacing:-.06em}.logo span{color:var(--lime)}.nav-links{display:flex;align-items:center;gap:22px}.nav-links a{color:#d6e0d7;font-size:12px}.nav-links a:hover{color:var(--lime)}.nav-cta{border:1px solid var(--lime);padding:9px 14px;color:var(--lime)!important}.menu-btn{display:none;background:none;color:var(--lime);border:1px solid var(--line);padding:8px 12px;font-size:19px;cursor:pointer}
+		.hero{background:var(--navy);color:var(--cream);padding:90px 7%;position:relative;overflow:hidden;background-image:linear-gradient(rgba(197,243,107,.045) 1px,transparent 1px),linear-gradient(90deg,rgba(197,243,107,.045) 1px,transparent 1px);background-size:44px 44px}.hero:after{content:'SE';position:absolute;right:-25px;bottom:-145px;font:700 clamp(250px,40vw,570px)/1 'Space Grotesk',sans-serif;color:rgba(197,243,107,.035);pointer-events:none}.hero-inner{max-width:1250px;margin:auto;display:grid;grid-template-columns:1.1fr .9fr;gap:55px;align-items:center;position:relative;z-index:1}.eyebrow,.section-tag{color:var(--lime);margin-bottom:18px}.hero h1{font:700 clamp(48px,7vw,88px)/.98 'Space Grotesk',sans-serif;letter-spacing:-.075em;margin-bottom:25px}.hero h1 span{color:var(--lime)}.hero p{color:#bdcbc1;max-width:490px;font-size:15px;margin-bottom:30px}.hero-actions{display:flex;flex-wrap:wrap;gap:12px}.btn{display:inline-block;padding:13px 21px;font-size:12px;font-weight:700}.btn-primary{background:var(--lime);color:var(--navy)}.btn-outline{border:1px solid #71877a;color:var(--cream)}.hero-visual{background:var(--navy2);border:1px solid var(--line);padding:20px}.visual-label,.visual-foot{display:flex;justify-content:space-between;gap:12px;color:var(--lime);font-size:10px}.tank-svg{width:100%;height:auto;display:block;margin:12px 0}.visual-foot{border-top:1px solid var(--line);padding-top:14px;color:var(--muted)}.ticker{background:var(--lime);color:var(--navy);padding:13px 7%;display:flex;justify-content:space-between;gap:15px;flex-wrap:wrap;font-size:10px;font-weight:700}
+		section{padding:85px 7%}.section-inner{max-width:1150px;margin:auto}.section-tag{color:var(--green2)}.section-title{font:600 clamp(34px,5vw,55px)/1.05 'Space Grotesk',sans-serif;letter-spacing:-.06em;max-width:680px;margin-bottom:20px}.section-intro{max-width:650px;color:#52665c;font-size:15px}.intro-grid,.diagram-layout{display:grid;grid-template-columns:1fr 1fr;gap:55px;align-items:start;margin-top:42px}.intro-note{background:var(--green);color:var(--cream);padding:28px;border-left:5px solid var(--lime)}.intro-note .mono{color:var(--lime);margin-bottom:12px}.intro-note p{font-size:14px}.facts{display:grid;grid-template-columns:1fr 1fr;gap:20px}.fact{border-top:2px solid var(--green);padding-top:12px}.fact strong{display:block;font:600 30px 'Space Grotesk',sans-serif;color:var(--green)}.fact span{font-size:12px;color:#61746a}
+		.dark-section{background:var(--navy);color:var(--cream);background-image:linear-gradient(rgba(197,243,107,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(197,243,107,.035) 1px,transparent 1px);background-size:44px 44px}.dark-section .section-tag,.quiz-section .section-tag{color:var(--lime)}.dark-section .section-intro,.quiz-section .section-intro{color:#b5c4b9}.process-list{margin-top:45px;border-top:1px solid var(--line)}.process-item{display:grid;grid-template-columns:90px 1fr 1.1fr;gap:25px;padding:25px 0;border-bottom:1px solid var(--line)}.process-number{color:var(--lime);font:13px 'DM Mono',monospace}.process-item h3,.problem h3,.law h3{font:600 22px 'Space Grotesk',sans-serif;line-height:1.2}.process-item p{color:#b5c4b9;font-size:13px}.diagram-section{background:#e5e8dc}.diagram-layout{grid-template-columns:1.2fr .8fr;align-items:center}.diagram-frame{background:#d6dfd1;padding:20px;border:1px solid #bdcbbb}.diagram-frame svg{width:100%;height:auto;display:block}.diagram-legend{display:grid;gap:18px}.legend-item{border-bottom:1px solid #c1ccbf;padding-bottom:15px}.legend-item strong{display:block;color:var(--green);font-size:15px;margin-bottom:5px}.legend-item p,.problem p,.law p{font-size:13px;color:#586c61}
+		.problems-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:#c6d0c3;border:1px solid #c6d0c3;margin-top:40px}.problem{background:var(--cream);padding:27px;min-height:175px}.problem small{color:var(--green2);font-size:10px}.problem h3{margin:10px 0 7px}.maintenance{background:var(--green);color:var(--cream)}.maintenance .section-tag{color:var(--lime)}.maintenance .section-intro{color:#d0dfd3}.checklist{margin-top:35px;display:grid;grid-template-columns:1fr 1fr;gap:0 40px}.check{display:flex;gap:14px;padding:16px 0;border-bottom:1px solid rgba(255,255,255,.2);color:#e8eee7;font-size:14px}.check span{color:var(--lime);font-family:'DM Mono',monospace}.laws-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:35px}.law{border:1px solid #c4cec1;padding:24px;background:#e9ebe2}.law .mono{color:var(--green2)}.law h3{margin:10px 0}.quiz-section{background:var(--navy2);color:var(--cream)}.quiz-box{margin-top:35px;max-width:760px;border:1px solid var(--line);padding:28px}.quiz-progress{height:4px;background:#34504b;margin-bottom:25px}.quiz-progress div{height:100%;width:0;background:var(--lime);transition:.3s}.quiz-count{color:var(--lime);margin-bottom:12px}#question{font:600 23px 'Space Grotesk',sans-serif;margin-bottom:20px}.answers{display:grid;gap:10px}.answer{background:#173a3c;border:1px solid #46615a;color:var(--cream);text-align:left;padding:13px 16px;cursor:pointer;font:13px 'DM Sans',sans-serif}.answer:hover:not(:disabled){border-color:var(--lime);color:var(--lime)}.answer.correct{background:#24583e;border-color:var(--lime)}.answer.wrong{background:#663d37;border-color:#ed9a8d}.answer:disabled{cursor:default}#feedback{margin-top:16px;font-size:13px;color:var(--lime);min-height:22px}.quiz-bottom{display:flex;justify-content:space-between;align-items:center;gap:15px;margin-top:18px}#next-btn{display:none;background:var(--lime);color:var(--navy);border:0;padding:12px 18px;font-weight:700;cursor:pointer}#score{color:var(--muted);font-size:12px}.references{background:var(--paper)}.reference-list{margin-top:25px;border-top:1px solid #c3cec0}.reference-list a{display:block;padding:15px 0;border-bottom:1px solid #c3cec0;color:var(--green);font-size:13px;overflow-wrap:anywhere}.reference-list a:hover{color:#08734f;text-decoration:underline}.closing{background:var(--lime);color:var(--navy);padding:60px 7%}.closing-inner{max-width:1150px;margin:auto;display:flex;justify-content:space-between;align-items:center;gap:25px}.closing h2{font:600 clamp(30px,5vw,48px)/1.05 'Space Grotesk',sans-serif;letter-spacing:-.06em}.closing p{font-size:13px;margin-top:10px;max-width:500px}.closing a{border:1px solid var(--navy);padding:13px 20px;font-size:12px;font-weight:700;white-space:nowrap}footer{background:var(--navy);color:var(--muted);padding:26px 7%;display:flex;justify-content:space-between;flex-wrap:wrap;gap:15px;font-size:11px}footer strong{color:var(--lime)}
+		@media(max-width:850px){.hero-inner,.intro-grid,.diagram-layout{grid-template-columns:1fr}.hero{padding-top:70px}.hero-visual{max-width:600px}.process-item{grid-template-columns:60px 1fr}.process-item p{grid-column:2}.nav-links{display:none;position:absolute;top:76px;left:0;right:0;background:var(--navy);padding:22px 7%;flex-direction:column;align-items:flex-start;border-bottom:1px solid var(--line)}.nav-links.active{display:flex}.menu-btn{display:block}}
+		@media(max-width:600px){section{padding:65px 6%}.hero{padding:60px 6%}.topbar{padding:9px 6%;font-size:8px}header{padding:0 6%}.problems-grid,.laws-grid,.checklist{grid-template-columns:1fr}.facts{gap:14px}.quiz-box{padding:18px}.closing-inner{align-items:flex-start;flex-direction:column}footer{padding:24px 6%}.ticker{padding:12px 6%}}
+	</style>
 </head>
-
 <body>
-
-<header>
-  <div class="navbar">
-    <a href="#home" class="logo">SEPTIC<span>SCIENCE</span></a>
-    <button class="menu-toggle" id="menu-toggle" aria-label="Toggle navigation">☰</button>
-    <nav id="navigation">
-      <a href="#home">Home</a>
-      <a href="#about">Introduction</a>
-      <a href="#science">Science</a>
-      <a href="#process">Process</a>
-      <a href="#diagram">Diagram</a>
-      <a href="#problems">Problems</a>
-      <a href="#laws">Laws</a>
-      <a href="#quiz">Quiz</a>
-      <a href="#references">References</a>
-    </nav>
-  </div>
-</header>
-
-<main>
-<section class="hero" id="home">
-  <div class="hero-content">
-    <span class="tag">SANITARY ENGINEERING EDUCATIONAL PROJECT</span>
-    <h1>Understanding <span>Septic Tanks</span> and Proper Management</h1>
-    <p>Discover how septic tanks treat household wastewater, protect public health, and help preserve our environment. Learn the science behind proper sanitation.</p>
-    <a href="#about" class="btn">Explore the Website</a>
-    <a href="#science" class="btn btn-outline">Learn the Science</a>
-  </div>
-</section>
-
-<section class="about-section" id="about">
-  <div class="container">
-    <div class="section-heading">
-      <small>Introduction</small>
-      <h2>What Is a Septic Tank?</h2>
-      <p>Understanding an important component of household sanitation.</p>
-    </div>
-    <div class="about-grid">
-      <div>
-        <h3>A Basic Wastewater Treatment System</h3>
-        <p>A septic tank is an underground, watertight container designed to receive and partially treat wastewater from homes and buildings that are not connected to a centralized sewer system.</p>
-        <br>
-        <p>It separates solid waste from liquid wastewater. Solids settle at the bottom, lighter materials float to the surface, and microorganisms help break down organic matter.</p>
-      </div>
-      <div class="about-panel">
-        <h3>Why Are Septic Tanks Important?</h3>
-        <ul class="list">
-          <li>Help manage household wastewater.</li>
-          <li>Reduce direct discharge of untreated sewage.</li>
-          <li>Support proper sanitation in communities.</li>
-          <li>Help protect groundwater and nearby water sources.</li>
-          <li>Promote public health and environmental protection.</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="science-section" id="science">
-  <div class="container">
-    <div class="section-heading">
-      <small>The Science</small>
-      <h2>How Does a Septic Tank Work?</h2>
-      <p>Its treatment process involves physical separation and biological decomposition.</p>
-    </div>
-    <div class="info-grid">
-      <div class="card">
-        <div class="icon">⚖️</div>
-        <h3>Sedimentation</h3>
-        <p>Heavy solid particles settle at the bottom and form a layer called sludge.</p>
-      </div>
-      <div class="card blue-card">
-        <div class="icon">🫧</div>
-        <h3>Scum Formation</h3>
-        <p>Oil, grease, and lighter materials float on the surface and form a layer called scum.</p>
-      </div>
-      <div class="card green-card">
-        <div class="icon">🦠</div>
-        <h3>Anaerobic Digestion</h3>
-        <p>Microorganisms break down some organic materials in the absence of oxygen.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="process-section" id="process">
-  <div class="container">
-    <div class="section-heading">
-      <small>Treatment Process</small>
-      <h2>Four Basic Stages</h2>
-      <p>Follow the general movement of wastewater through a septic system.</p>
-    </div>
-    <div class="process">
-      <div class="process-step"><div class="number">1</div><h3>Inlet</h3><p>Wastewater enters the septic tank from household plumbing.</p></div>
-      <div class="process-step"><div class="number">2</div><h3>Separation</h3><p>Solids settle while oils and grease rise to the surface.</p></div>
-      <div class="process-step"><div class="number">3</div><h3>Decomposition</h3><p>Anaerobic microorganisms break down some organic waste.</p></div>
-      <div class="process-step"><div class="number">4</div><h3>Effluent</h3><p>Partially treated liquid leaves for further treatment and appropriate disposal.</p></div>
-    </div>
-  </div>
-</section>
-
-<section class="diagram-section" id="diagram">
-  <div class="container">
-    <div class="section-heading">
-      <small>System Illustration</small>
-      <h2>Inside a Septic Tank</h2>
-      <p>A simplified educational illustration of a conventional septic tank.</p>
-    </div>
-    <div class="diagram-box">
-      <svg viewBox="0 0 850 440" role="img" aria-label="Septic tank cross-section showing inlet, outlet, scum, wastewater, and sludge">
-        <defs><clipPath id="tank-clip"><rect x="125" y="115" width="600" height="240" rx="8"/></clipPath></defs>
-        <rect x="115" y="105" width="620" height="260" rx="12" fill="#dcebe7" stroke="#063b46" stroke-width="8"/>
-        <g clip-path="url(#tank-clip)">
-          <rect x="125" y="150" width="600" height="205" fill="#a9dce9"/>
-          <rect x="125" y="150" width="600" height="22" fill="#b2a36c"/>
-          <path d="M125 315 Q250 300 360 320 T725 315 L725 355 L125 355 Z" fill="#846c4e"/>
-          <rect x="405" y="110" width="12" height="245" fill="#063b46" opacity=".35"/>
-        </g>
-        <path d="M35 140 H160 V190" stroke="#167dad" stroke-width="13" fill="none" stroke-linecap="round"/>
-        <path d="M690 190 V140 H815" stroke="#20a879" stroke-width="13" fill="none" stroke-linecap="round"/>
-        <path d="M160 190 V225 M690 190 V225" stroke="#063b46" stroke-width="8"/>
-        <g fill="#063b46" font-size="15" font-weight="bold">
-          <text x="20" y="115">INLET PIPE</text>
-          <text x="725" y="115">OUTLET PIPE</text>
-          <text x="425" y="135" text-anchor="middle">PARTITION</text>
-          <text x="425" y="210" text-anchor="middle">WASTEWATER</text>
-          <text x="425" y="165" text-anchor="middle" font-size="13">SCUM LAYER</text>
-          <text x="425" y="342" text-anchor="middle" fill="white">SLUDGE</text>
-          <text x="425" y="395" text-anchor="middle">SEPTIC TANK CROSS-SECTION</text>
-        </g>
-      </svg>
-      <p class="diagram-note">Note: This is a simplified illustration for educational purposes, not a construction plan or engineering design.</p>
-    </div>
-  </div>
-</section>
-
-<section class="problems-section" id="problems">
-  <div class="container">
-    <div class="section-heading"><small>Common Issues</small><h2>Problems in Septic Tank Systems</h2><p>Improper design, operation, and maintenance can cause serious sanitation problems.</p></div>
-    <div class="info-grid">
-      <div class="card"><div class="icon">🚫</div><h3>Clogging</h3><p>Excessive solids, grease, and unsuitable materials can block pipes and system components.</p></div>
-      <div class="card blue-card"><div class="icon">💧</div><h3>Leaks</h3><p>Damaged tanks may allow wastewater to escape and contaminate soil or groundwater.</p></div>
-      <div class="card green-card"><div class="icon">⚠️</div><h3>Overflow</h3><p>Blockages, excess wastewater, or poor maintenance can cause sewage backups.</p></div>
-    </div>
-  </div>
-</section>
-
-<section class="impact-section" id="impacts">
-  <div class="container">
-    <div class="section-heading"><small>Environmental Protection</small><h2>Health and Environmental Impacts</h2><p>Proper wastewater management helps protect people and natural resources.</p></div>
-    <div class="impact-grid">
-      <div class="card"><div class="icon">🌱</div><h3>Environmental Impacts</h3><ul class="list"><li>Groundwater contamination.</li><li>Pollution of rivers and other water bodies.</li><li>Excess nutrients entering the environment.</li><li>Damage to aquatic ecosystems.</li></ul></div>
-      <div class="card blue-card"><div class="icon">🏥</div><h3>Public Health Impacts</h3><ul class="list"><li>Exposure to disease-causing microorganisms.</li><li>Risk of waterborne diseases.</li><li>Contact with untreated sewage.</li><li>Unpleasant odors and unsanitary surroundings.</li></ul></div>
-    </div>
-  </div>
-</section>
-
-<section class="maintenance-section" id="maintenance">
-  <div class="container">
-    <div class="section-heading"><small>Proper Management</small><h2>Septic Tank Maintenance</h2><p>Regular inspection and proper use help maintain a safe and effective system.</p></div>
-    <div class="info-grid">
-      <div class="card"><div class="icon">🔍</div><h3>Inspect Regularly</h3><p>Have the tank and system inspected by qualified professionals according to applicable requirements.</p></div>
-      <div class="card blue-card"><div class="icon">🚛</div><h3>Desludge Properly</h3><p>Arrange desludging when needed and use authorized service providers.</p></div>
-      <div class="card green-card"><div class="icon">♻️</div><h3>Dispose Responsibly</h3><p>Do not flush plastics, sanitary products, chemicals, grease, or other unsuitable materials.</p></div>
-    </div>
-  </div>
-</section>
-
-<section class="laws-section" id="laws">
-  <div class="container">
-    <div class="section-heading"><small>Philippine Regulations</small><h2>Laws Related to Sanitation</h2><p>Philippine laws and regulations support proper sanitation and wastewater management.</p></div>
-    <div class="law-card"><h3>Presidential Decree No. 856</h3><p>Code on Sanitation of the Philippines. Establishes sanitation requirements, including provisions related to sewage disposal and sanitation facilities.</p><a href="https://lawphil.net/statutes/presdecs/pd1975/pd_856_1975.html" target="_blank" rel="noopener">Read the law ↗</a></div>
-    <div class="law-card"><h3>Republic Act No. 9275</h3><p>Philippine Clean Water Act of 2004. Provides a framework for preventing and controlling water pollution.</p><a href="https://lawphil.net/statutes/repacts/ra2004/ra_9275_2004.html" target="_blank" rel="noopener">Read the law ↗</a></div>
-    <div class="law-card"><h3>Department of Health Regulations</h3><p>Department of Health sanitation rules and technical guidance support the safe design, operation, and management of sanitation facilities.</p><a href="https://doh.gov.ph/" target="_blank" rel="noopener">Visit DOH ↗</a></div>
-  </div>
-</section>
-
-<section class="quiz-section" id="quiz">
-  <div class="container">
-    <div class="section-heading"><small>Test Your Knowledge</small><h2>Septic Tank Quiz</h2><p>Check what you have learned about septic tanks and wastewater treatment.</p></div>
-    <form class="quiz-box" id="quiz-form">
-      <div class="question"><h3>1. What is the main purpose of a septic tank?</h3><label><input type="radio" name="q1" value="a"> Store drinking water</label><label><input type="radio" name="q1" value="b"> Treat household wastewater</label><label><input type="radio" name="q1" value="c"> Produce electricity</label></div>
-      <div class="question"><h3>2. What forms at the bottom of a septic tank?</h3><label><input type="radio" name="q2" value="a"> Scum</label><label><input type="radio" name="q2" value="b"> Clean water</label><label><input type="radio" name="q2" value="c"> Sludge</label></div>
-      <div class="question"><h3>3. What process helps break down organic waste?</h3><label><input type="radio" name="q3" value="a"> Anaerobic digestion</label><label><input type="radio" name="q3" value="b"> Evaporation</label><label><input type="radio" name="q3" value="c"> Freezing</label></div>
-      <div class="question"><h3>4. Which Philippine law is known as the Clean Water Act of 2004?</h3><label><input type="radio" name="q4" value="a"> PD 856</label><label><input type="radio" name="q4" value="b"> RA 9275</label><label><input type="radio" name="q4" value="c"> RA 9003</label></div>
-      <div class="question"><h3>5. Which practice helps maintain a septic tank?</h3><label><input type="radio" name="q5" value="a"> Pouring grease into drains</label><label><input type="radio" name="q5" value="b"> Ignoring inspections</label><label><input type="radio" name="q5" value="c"> Regular inspection and proper desludging</label></div>
-      <button type="submit" class="btn">Submit Answers</button>
-      <button type="reset" class="btn btn-blue">Try Again</button>
-      <div id="quiz-result" role="status" aria-live="polite"></div>
-    </form>
-  </div>
-</section>
-
-<section class="references-section" id="references">
-  <div class="container">
-    <div class="section-heading"><small>Further Reading</small><h2>References</h2><p>Explore these resources to learn more about sanitation and wastewater management.</p></div>
-    <ul class="reference-list">
-      <li><a href="https://lawphil.net/statutes/presdecs/pd1975/pd_856_1975.html" target="_blank" rel="noopener">Presidential Decree No. 856 – Code on Sanitation of the Philippines ↗</a></li>
-      <li><a href="https://lawphil.net/statutes/repacts/ra2004/ra_9275_2004.html" target="_blank" rel="noopener">Republic Act No. 9275 – Philippine Clean Water Act of 2004 ↗</a></li>
-      <li><a href="https://www.who.int/health-topics/sanitation" target="_blank" rel="noopener">World Health Organization – Sanitation ↗</a></li>
-      <li><a href="https://www.epa.gov/septic" target="_blank" rel="noopener">United States Environmental Protection Agency – Septic Systems ↗</a></li>
-      <li><a href="https://doh.gov.ph/" target="_blank" rel="noopener">Department of Health – Philippines ↗</a></li>
-    </ul>
-  </div>
-</section>
-
-<section class="cta"><h2>Protect Water. Protect Health. Protect the Environment.</h2><p>Proper sanitation starts with awareness, knowledge, and responsible action.</p><a href="#home" class="btn">Back to Top ↑</a></section>
-</main>
-
-<footer><p><strong>SEPTIC<span>SCIENCE</span></strong></p><p>Educational Website | Sanitary Engineering</p><p>© 2026 Septic Science. For educational purposes.</p></footer>
-
-<script>
-const menuToggle = document.getElementById("menu-toggle");
-const navigation = document.getElementById("navigation");
-menuToggle.addEventListener("click", () => { navigation.classList.toggle("active"); });
-document.querySelectorAll("#navigation a").forEach(link => { link.addEventListener("click", () => { navigation.classList.remove("active"); }); });
-
-const quizForm = document.getElementById("quiz-form");
-const quizResult = document.getElementById("quiz-result");
-quizForm.addEventListener("submit", function(event) {
-  event.preventDefault();
-  const answers = { q1: "b", q2: "c", q3: "a", q4: "b", q5: "c" };
-  let score = 0;
-  let unanswered = 0;
-  for (const question in answers) {
-    const selected = document.querySelector('input[name="' + question + '"]:checked');
-    if (!selected) unanswered++;
-    else if (selected.value === answers[question]) score++;
-  }
-  quizResult.style.display = "block";
-  if (unanswered > 0) { quizResult.textContent = "Please answer all questions before submitting."; return; }
-  let message = "";
-  if (score === 5) message = "Excellent! You got a perfect score!";
-  else if (score >= 3) message = "Good job! Keep learning about sanitation.";
-  else message = "Keep studying! Review the website and try again.";
-  quizResult.textContent = "Your score: " + score + " / 5. " + message;
-});
-quizForm.addEventListener("reset", function() { quizResult.style.display = "none"; quizResult.textContent = ""; });
-</script>
-
+	<div class="topbar mono"><span>FIELD NOTES / SANITARY ENGINEERING</span><span>EDUCATIONAL PROJECT — 001</span></div>
+	<header><nav>
+		<a href="#home" class="logo">SEPTIC<span>/</span></a>
+		<button class="menu-btn" id="menuBtn" aria-label="Toggle navigation" aria-expanded="false">☰</button>
+		<div class="nav-links" id="navLinks"><a href="#about">Overview</a><a href="#process">How It Works</a><a href="#diagram">Structure</a><a href="#maintenance">Maintenance</a><a href="#laws">Laws</a><a href="#quiz" class="nav-cta">Take the Quiz ↗</a></div>
+	</nav></header>
+	<main>
+		<section class="hero" id="home"><div class="hero-inner"><div>
+			<div class="eyebrow mono">01 / UNDERSTANDING WASTEWATER</div><h1>Wastewater.<br>Handled <span>right.</span></h1>
+			<p>A closer look at septic tanks: how they work, why they matter, and how proper maintenance helps protect our health and environment.</p>
+			<div class="hero-actions"><a href="#about" class="btn btn-primary">Explore the Guide ↘</a><a href="#diagram" class="btn btn-outline">View the System</a></div>
+		</div><div class="hero-visual"><div class="visual-label mono"><span>FIG. 01 — SYSTEM OVERVIEW</span><span>01/06</span></div>
+			<svg class="tank-svg" viewBox="0 0 520 350" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Schematic of a two-chamber septic tank">
+				<defs><pattern id="grid" width="25" height="25" patternUnits="userSpaceOnUse"><path d="M25 0H0V25" fill="none" stroke="#31524a" stroke-width=".6"/></pattern></defs><rect width="520" height="350" fill="url(#grid)"/><path d="M20 115H500M80 115V210H440V115" fill="none" stroke="#c5f36b" stroke-width="2"/><path d="M80 210V285H440V210" fill="#174d3c" stroke="#c5f36b" stroke-width="3"/><path d="M80 240H440M80 260H440" stroke="#9ccf69" stroke-width="2"/><path d="M260 210V285M240 210V160H280V210M120 115V180H145V115M375 115V180H400V115" fill="none" stroke="#c5f36b" stroke-width="2"/><path d="M20 145H80M440 145H500" stroke="#c5f36b" stroke-width="4"/><path d="M20 145l12-7v14zM500 145l-12-7v14z" fill="#c5f36b"/><path d="M100 225q15-15 30 0t30 0t30 0M280 225q15-15 30 0t30 0t30 0" fill="none" stroke="#c5f36b" stroke-width="2"/><g fill="#c5f36b" font-family="monospace" font-size="10"><text x="20" y="130">INLET</text><text x="430" y="130">OUTLET</text><text x="90" y="305">CHAMBER 01</text><text x="280" y="305">CHAMBER 02</text><text x="350" y="40">SCHEMATIC</text><text x="350" y="55">NOT TO SCALE</text></g><g stroke="#c5f36b" fill="none"><path d="M135 175L160 95H210M330 250L350 325H400"/></g><g fill="#c5f36b" font-family="monospace" font-size="9"><text x="213" y="98">BAFFLE</text><text x="402" y="328">SLUDGE</text></g>
+			</svg><div class="visual-foot mono"><span>WASTEWATER TREATMENT</span><span>DESIGN / EDUCATION</span></div>
+		</div></div></section>
+		<div class="ticker mono"><span>01 — UNDERSTAND THE SYSTEM</span><span>02 — PROTECT PUBLIC HEALTH</span><span>03 — CARE FOR THE ENVIRONMENT</span></div>
+		<section id="about"><div class="section-inner"><div class="section-tag mono">01 / THE BASICS</div><h2 class="section-title">What exactly is a septic tank?</h2><p class="section-intro">A septic tank is an underground, watertight container that receives wastewater from a building and allows solids to settle while microorganisms break down some organic matter.</p>
+			<div class="intro-grid"><div class="intro-note"><div class="mono">WHY IT MATTERS</div><p>Not every building is connected to a centralized sewer system. A properly designed and maintained septic system can provide wastewater treatment where public sewer services are unavailable. Poorly managed systems, however, can contaminate soil and water.</p></div><div class="facts"><div class="fact"><strong>01</strong><span>Receives wastewater from connected plumbing</span></div><div class="fact"><strong>02</strong><span>Separates solids from liquid wastewater</span></div><div class="fact"><strong>03</strong><span>Allows anaerobic digestion of organic matter</span></div><div class="fact"><strong>04</strong><span>Works with a suitable soil treatment system</span></div></div></div>
+		</div></section>
+		<section class="dark-section" id="process"><div class="section-inner"><div class="section-tag mono">02 / THE PROCESS</div><h2 class="section-title">From wastewater to treatment.</h2><p class="section-intro">A septic tank uses physical separation and biological processes. Here is a simplified explanation of what happens inside.</p>
+			<div class="process-list"><div class="process-item"><div class="process-number">01 / INLET</div><h3>Wastewater enters</h3><p>Wastewater flows from the building's plumbing into the tank through an inlet pipe.</p></div><div class="process-item"><div class="process-number">02 / SETTLING</div><h3>Solids separate</h3><p>Heavier solids settle as sludge, while oils and grease float to form a scum layer.</p></div><div class="process-item"><div class="process-number">03 / DIGESTION</div><h3>Microorganisms work</h3><p>Anaerobic microorganisms break down some organic material without oxygen.</p></div><div class="process-item"><div class="process-number">04 / OUTLET</div><h3>Effluent leaves</h3><p>Partially treated liquid exits to a properly designed soil absorption or further treatment system.</p></div></div>
+		</div></section>
+		<section class="diagram-section" id="diagram"><div class="section-inner"><div class="section-tag mono">03 / SYSTEM STRUCTURE</div><h2 class="section-title">Inside the septic tank.</h2><p class="section-intro">Each component has a purpose. Understanding the parts helps explain how the system separates and treats wastewater.</p>
+			<div class="diagram-layout"><div class="diagram-frame"><svg viewBox="0 0 620 390" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Illustration of a two-compartment septic tank"><rect x="35" y="65" width="550" height="260" rx="3" fill="#174d3c" stroke="#142b27" stroke-width="5"/><rect x="42" y="155" width="536" height="164" fill="#8ebf88"/><path d="M42 155H578M42 180H578" stroke="#174d3c"/><path d="M310 65V325" stroke="#142b27" stroke-width="7"/><path d="M95 65V210H130V65M490 65V210H525V65" fill="none" stroke="#142b27" stroke-width="7"/><path d="M35 100H95M525 100H585" stroke="#142b27" stroke-width="10"/><path d="M42 225H578" stroke="#174d3c" stroke-width="3" stroke-dasharray="8 4"/><path d="M42 250q20-20 40 0t40 0t40 0t40 0t40 0M325 250q20-20 40 0t40 0t40 0t40 0" fill="none" stroke="#d3e6a0" stroke-width="3"/><g fill="#142b27" font-family="monospace" font-size="13" font-weight="bold"><text x="135" y="115">CHAMBER 1</text><text x="365" y="115">CHAMBER 2</text></g><g stroke="#142b27" stroke-width="2" fill="none"><path d="M110 205L75 350H35M310 295V365H230M510 205L550 350H590M260 155V30H200"/></g><g fill="#142b27" font-family="monospace" font-size="11" font-weight="bold"><text x="35" y="368">INLET BAFFLE</text><text x="125" y="382">SLUDGE LAYER</text><text x="470" y="368">OUTLET BAFFLE</text><text x="120" y="25">SCUM LAYER</text></g></svg></div>
+			<div class="diagram-legend"><div class="legend-item"><strong>01 — Inlet pipe and baffle</strong><p>Directs incoming wastewater and helps reduce disturbance.</p></div><div class="legend-item"><strong>02 — Scum layer</strong><p>Floating materials such as oils and grease collect at the top.</p></div><div class="legend-item"><strong>03 — Sludge layer</strong><p>Heavier solids settle at the bottom of the tank.</p></div><div class="legend-item"><strong>04 — Outlet pipe and baffle</strong><p>Allows liquid effluent to leave while helping keep scum and solids inside.</p></div><p style="font-size:11px;color:#6b7c70">*Simplified educational illustration. Actual designs vary.</p></div></div>
+		</div></section>
+		<section id="impacts"><div class="section-inner"><div class="section-tag mono">04 / RISKS & CONSEQUENCES</div><h2 class="section-title">When a system fails.</h2><p class="section-intro">A damaged, overloaded, or poorly maintained septic system can create serious problems for households and communities.</p>
+			<div class="problems-grid"><article class="problem"><small class="mono">01 / HEALTH</small><h3>Pathogen exposure</h3><p>Untreated wastewater may contain disease-causing microorganisms that can expose people to infection.</p></article><article class="problem"><small class="mono">02 / WATER</small><h3>Groundwater contamination</h3><p>Leaking tanks or unsuitable disposal areas may allow pollutants to reach groundwater.</p></article><article class="problem"><small class="mono">03 / ENVIRONMENT</small><h3>Surface water pollution</h3><p>Improperly treated wastewater can carry nutrients and contaminants into water bodies.</p></article><article class="problem"><small class="mono">04 / SYSTEM</small><h3>Backups and overflow</h3><p>Clogged pipes, excessive water use, and neglected tanks can cause backups or overflow.</p></article></div>
+		</div></section>
+		<section class="maintenance" id="maintenance"><div class="section-inner"><div class="section-tag mono">05 / RESPONSIBLE MAINTENANCE</div><h2 class="section-title">A system is only as good as its care.</h2><p class="section-intro">Regular inspection and responsible household practices help prevent failures and extend the useful life of a septic system.</p>
+			<div class="checklist"><div class="check"><span>✓</span>Have the system inspected regularly by qualified personnel.</div><div class="check"><span>✓</span>Remove sludge and scum when inspection indicates it is necessary.</div><div class="check"><span>✓</span>Avoid flushing wipes, sanitary products, plastics, and other solid waste.</div><div class="check"><span>✓</span>Do not pour grease, oils, or harmful chemicals down drains.</div><div class="check"><span>✓</span>Prevent excessive water use that can overload the system.</div><div class="check"><span>✓</span>Keep vehicles and heavy structures away from the tank and absorption area.</div><div class="check"><span>✓</span>Watch for foul odors, slow drains, wet spots, and unusual backups.</div><div class="check"><span>✓</span>Never enter a septic tank; dangerous gases and low oxygen can be fatal.</div></div>
+		</div></section>
+		<section id="laws"><div class="section-inner"><div class="section-tag mono">06 / PHILIPPINE REGULATIONS</div><h2 class="section-title">The law behind sanitation.</h2><p class="section-intro">Sanitation and wastewater management are supported by Philippine laws and regulations designed to protect public health and the environment.</p>
+			<div class="laws-grid"><article class="law"><div class="mono">PRESIDENTIAL DECREE 856</div><h3>Code on Sanitation of the Philippines</h3><p>Establishes sanitation requirements and standards intended to protect public health, including provisions related to sewage disposal.</p></article><article class="law"><div class="mono">REPUBLIC ACT 9275</div><h3>Philippine Clean Water Act of 2004</h3><p>Provides a framework for preventing and controlling water pollution and protecting the country's water resources.</p></article><article class="law"><div class="mono">REPUBLIC ACT 9003</div><h3>Ecological Solid Waste Management Act</h3><p>Promotes proper solid waste management and helps prevent improper disposal that can affect communities and the environment.</p></article><article class="law"><div class="mono">REPUBLIC ACT 1364</div><h3>Sanitary Engineering Law</h3><p>Regulates the practice of sanitary engineering in the Philippines and establishes its professional framework.</p></article></div>
+		</div></section>
+		<section class="quiz-section" id="quiz"><div class="section-inner"><div class="section-tag mono">07 / KNOWLEDGE CHECK</div><h2 class="section-title">Test what you've learned.</h2><p class="section-intro">Answer these questions to review basic concepts of septic tanks and wastewater management.</p>
+			<div class="quiz-box"><div class="quiz-progress"><div id="progress"></div></div><div class="quiz-count mono" id="questionCount">QUESTION 01 / 05</div><h3 id="question">What is the main purpose of a septic tank?</h3><div class="answers" id="answers"></div><div id="feedback" aria-live="polite"></div><div class="quiz-bottom"><span id="score">Score: 0</span><button id="next-btn">Next Question →</button></div></div>
+		</div></section>
+		<section class="references" id="references"><div class="section-inner"><div class="section-tag mono">08 / FURTHER READING</div><h2 class="section-title">References & resources.</h2><p class="section-intro">Explore sanitation, wastewater management, and environmental protection in more detail.</p><div class="reference-list">
+			<a href="https://lawphil.net/statutes/presdecs/pd1975/pd_856_1975.html" target="_blank" rel="noopener noreferrer">Presidential Decree No. 856 — Code on Sanitation of the Philippines ↗</a><a href="https://lawphil.net/statutes/repacts/ra2004/ra_9275_2004.html" target="_blank" rel="noopener noreferrer">Republic Act No. 9275 — Philippine Clean Water Act of 2004 ↗</a><a href="https://lawphil.net/statutes/repacts/ra2001/ra_9003_2001.html" target="_blank" rel="noopener noreferrer">Republic Act No. 9003 — Ecological Solid Waste Management Act ↗</a><a href="https://lawphil.net/statutes/repacts/ra1955/ra_1364_1955.html" target="_blank" rel="noopener noreferrer">Republic Act No. 1364 — Sanitary Engineering Law ↗</a><a href="https://www.epa.gov/septic" target="_blank" rel="noopener noreferrer">United States Environmental Protection Agency — Septic Systems ↗</a><a href="https://www.who.int/health-topics/sanitation" target="_blank" rel="noopener noreferrer">World Health Organization — Sanitation ↗</a>
+		</div></div></section>
+		<section class="closing"><div class="closing-inner"><div><h2>Better sanitation.<br>Healthier communities.</h2><p>Understanding wastewater systems is one step toward protecting public health and our environment.</p></div><a href="#home">BACK TO TOP ↑</a></div></section>
+	</main>
+	<footer><span><strong>SEPTIC/</strong> — A FIELD GUIDE TO WASTEWATER</span><span>EDUCATIONAL PROJECT · SANITARY ENGINEERING</span><span>© 2026</span></footer>
+	<script>
+		const menuBtn=document.getElementById('menuBtn');
+		const navLinks=document.getElementById('navLinks');
+		menuBtn.addEventListener('click',()=>{const open=navLinks.classList.toggle('active');menuBtn.setAttribute('aria-expanded',String(open));});
+		document.querySelectorAll('.nav-links a').forEach(link=>link.addEventListener('click',()=>{navLinks.classList.remove('active');menuBtn.setAttribute('aria-expanded','false');}));
+		const quizData=[
+			{question:'What is the main purpose of a septic tank?',answers:['To store drinking water','To receive and partially treat wastewater','To produce electricity','To collect rainwater'],correct:1,explanation:'A septic tank receives wastewater and separates solids from liquids while allowing some biological treatment.'},
+			{question:'What forms at the bottom of a septic tank?',answers:['Scum','Clean water','Sludge','Oxygen'],correct:2,explanation:'Sludge consists of heavier solids that settle at the bottom of the tank.'},
+			{question:'Which microorganisms help break down organic matter inside a septic tank?',answers:['Anaerobic microorganisms','Algae only','Mosquitoes','Plant roots'],correct:0,explanation:'Anaerobic microorganisms break down some organic matter without oxygen.'},
+			{question:'Which item should NOT be flushed into a septic system?',answers:['Wastewater','Human waste','Toilet paper in appropriate amounts','Plastic and wet wipes'],correct:3,explanation:'Plastic and wipes can clog pipes and interfere with septic system operation.'},
+			{question:'Which Philippine law is known as the Clean Water Act of 2004?',answers:['RA 9003','RA 9275','PD 856','RA 1364'],correct:1,explanation:'Republic Act No. 9275 is the Philippine Clean Water Act of 2004.'}
+		];
+		let currentQuestion=0,score=0,answered=false;
+		const questionElement=document.getElementById('question'),answersElement=document.getElementById('answers'),feedbackElement=document.getElementById('feedback'),nextButton=document.getElementById('next-btn'),scoreElement=document.getElementById('score'),progressElement=document.getElementById('progress'),countElement=document.getElementById('questionCount');
+		function loadQuestion(){answered=false;const item=quizData[currentQuestion];questionElement.textContent=item.question;countElement.textContent=`QUESTION ${String(currentQuestion+1).padStart(2,'0')} / ${quizData.length}`;progressElement.style.width=`${currentQuestion/quizData.length*100}%`;answersElement.replaceChildren();feedbackElement.textContent='';nextButton.style.display='none';nextButton.textContent='Next Question →';nextButton.onclick=nextQuestion;item.answers.forEach((answer,index)=>{const button=document.createElement('button');button.className='answer';button.textContent=`${String.fromCharCode(65+index)}. ${answer}`;button.addEventListener('click',()=>checkAnswer(index,button));answersElement.appendChild(button);});}
+		function checkAnswer(selected,selectedButton){if(answered)return;answered=true;const item=quizData[currentQuestion],buttons=answersElement.querySelectorAll('.answer');buttons.forEach(button=>button.disabled=true);if(selected===item.correct){score++;selectedButton.classList.add('correct');feedbackElement.textContent='✓ Correct! '+item.explanation;}else{selectedButton.classList.add('wrong');buttons[item.correct].classList.add('correct');feedbackElement.textContent='✕ Not quite. '+item.explanation;}scoreElement.textContent=`Score: ${score}`;nextButton.style.display='inline-block';nextButton.textContent=currentQuestion===quizData.length-1?'See Results →':'Next Question →';}
+		function nextQuestion(){currentQuestion++;if(currentQuestion<quizData.length)loadQuestion();else showResults();}
+		function showResults(){progressElement.style.width='100%';countElement.textContent='QUIZ COMPLETED';questionElement.textContent=`You scored ${score} out of ${quizData.length}!`;answersElement.replaceChildren();feedbackElement.textContent=score===quizData.length?'Excellent work! You answered everything correctly.':'Good effort! Review the guide and try again.';nextButton.textContent='Try Again ↻';nextButton.style.display='inline-block';nextButton.onclick=restartQuiz;}
+		function restartQuiz(){currentQuestion=0;score=0;scoreElement.textContent='Score: 0';loadQuestion();}
+		loadQuestion();
+	</script>
 </body>
 </html>
