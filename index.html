@@ -353,9 +353,9 @@ section {
 }
 
 .diagram {
-	background: #c2dfce;
+	background: #e0f1e5;
 	padding: 20px;
-	border: 1px solid #83ad94;
+	border: 1px solid #9fc9ae;
 }
 
 .diagram svg {
@@ -369,7 +369,7 @@ section {
 }
 
 .diagram-info article {
-	border-bottom: 1px solid #83ad94;
+	border-bottom: 1px solid #a4cdb2;
 	padding-bottom: 15px;
 }
 
@@ -380,7 +380,7 @@ section {
 }
 
 .diagram-info p {
-	color: #3d5c4c;
+	color: #526b5d;
 	font-size: 13px;
 }
 
@@ -388,19 +388,18 @@ section {
 
 .impacts-section {
 	background: #163b50;
-	color: #f2f7f8;
 }
 
 .impacts-section .section-label {
-	color: #a8dce8;
+	color: #c8ed79;
 }
 
 .impacts-section .section-title {
-	color: #ffffff;
+	color: white;
 }
 
 .impacts-section .section-description {
-	color: #d4e4eb;
+	color: #d0e2e8;
 }
 
 .problem-grid {
@@ -408,29 +407,28 @@ section {
 	grid-template-columns: 1fr 1fr;
 	gap: 2px;
 	margin-top: 40px;
-	background: #31566a;
-	border: 1px solid #31566a;
+	background: #31596b;
+	border: 1px solid #31596b;
 }
 
 .problem {
-	background: #214e63;
-	color: #f2f7f8;
+	background: #20485c;
 	padding: 30px;
+	color: white;
 }
 
 .problem small {
-	color: #a8dce8;
+	color: var(--lime);
 }
 
 .problem h3 {
-	color: #ffffff;
 	font-size: 21px;
 	margin: 10px 0;
 }
 
 .problem p {
 	font-size: 13px;
-	color: #d4e4eb;
+	color: #d0e2e8;
 }
 
 /* PART 5 - MAINTENANCE */
@@ -470,19 +468,15 @@ section {
 
 .laws-section {
 	background: #174c3c;
-	color: #f2f7f8;
-}
-
-.laws-section .section-title {
-	color: #ffffff;
+	color: white;
 }
 
 .laws-section .section-label {
-	color: #c8ed79;
+	color: var(--lime);
 }
 
 .laws-section .section-description {
-	color: #d4e5dc;
+	color: #d0e2d7;
 }
 
 .law-grid {
@@ -494,24 +488,23 @@ section {
 
 .law {
 	padding: 25px;
-	border: 1px solid #477361;
+	border: 1px solid #668b77;
 	background: #205b43;
-	color: #f2f7f8;
 }
 
 .law small {
-	color: #c8ed79;
+	color: var(--lime);
 }
 
 .law h3 {
-	color: #ffffff;
 	margin: 10px 0;
 	font-size: 21px;
+	color: white;
 }
 
 .law p {
 	font-size: 13px;
-	color: #d4e5dc;
+	color: #d0e2d7;
 }
 
 /* PART 7 - REFERENCES */
@@ -598,6 +591,22 @@ footer {
 
 footer strong {
 	color: var(--lime);
+}
+
+/* PROJECT CREDITS */
+
+.project-credit {
+	border-top: 1px solid #36534b;
+	margin-top: 20px;
+	padding-top: 15px;
+	color: #b7c8bd;
+	font-size: 11px;
+	line-height: 1.9;
+}
+
+.project-credit strong {
+	color: var(--lime);
+	font-weight: bold;
 }
 
 /* RESPONSIVE DESIGN */
@@ -1059,7 +1068,7 @@ footer strong {
 <section class="references" id="references">
 	<div class="container">
 
-		<div class="section-label mono">07 / REFERENCES & SOURCES</div>
+		<div class="section-label mono">07 / REFERENCES &amp; SOURCES</div>
 
 		<h2 class="section-title">References and resources.</h2>
 
@@ -1118,11 +1127,20 @@ footer strong {
 <!-- FOOTER -->
 
 <footer>
-	<div class="container footer-content">
+	<div class="container">
 
-		<span><strong>SEPTIC/</strong> — A FIELD GUIDE TO WASTEWATER</span>
-		<span>EDUCATIONAL PROJECT · SANITARY ENGINEERING</span>
-		<span>© 2026</span>
+		<div class="footer-content">
+			<span><strong>SEPTIC TANK</strong> — A FIELD GUIDE TO WASTEWATER</span>
+			<span>EDUCATIONAL PROJECT · SANITARY ENGINEERING</span>
+			<span>© 2026</span>
+		</div>
+
+		<!-- PROJECT CREDITS -->
+		<div class="project-credit">
+			<div><strong>Prepared by:</strong> NICHOLAINE DOMINIQUE F. ROMARO</div>
+			<div><strong>Program:</strong> BS Sanitary Engineering</div>
+			<div><strong>Institution:</strong> Western Mindanao State University</div>
+		</div>
 
 	</div>
 </footer>
